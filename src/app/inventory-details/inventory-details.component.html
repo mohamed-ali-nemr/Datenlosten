@@ -1,0 +1,70 @@
+<div *ngIf="item">
+
+    <div class="container mt-4">
+        <h2 class="text-center fw-bold mb-4">Item Details</h2>
+        <hr>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div *ngIf="!isEditing; else editMode">
+                    <div class="mb-3">
+                        <p><strong>Name:</strong> {{ item.name }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <p><strong>Category:</strong> {{ item.category }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <p>
+                            <strong>Last Updated:</strong> {{ item.lastUpdated | date }}
+                        </p>
+                    </div>
+                    <div class="text-center">
+
+                        <button class="btn btn-outline-primary m-2" (click)="toggleEdit()">
+                            <i class="bi bi-pencil me-2"></i> Edit
+                        </button>
+                        <button class="btn btn-outline-secondary" routerLink="/inventory">
+                            <i class="bi bi-arrow-left me-2"></i> Back to Inventory
+                        </button>
+                    </div>
+                </div>
+
+               
+
+                <ng-template #editMode>
+                    <div class="mb-3">
+                        <label for="name" class="form-label"><strong>Name:</strong></label>
+                        <input id="name" [(ngModel)]="item.name" class="form-control" placeholder="Enter name" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label"><strong>Category:</strong></label>
+                        <input id="category" [(ngModel)]="item.category" class="form-control"
+                            placeholder="Enter category" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label"><strong>Quantity:</strong></label>
+                        <input type="number" [(ngModel)]="item.quantity" class="form-control"
+                            placeholder="Enter quantity" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastUpdated" class="form-label"><strong>Last Updated:</strong></label>
+                        <input type="date" id="lastUpdated" [(ngModel)]="item.lastUpdated" class="form-control" />
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-outline-success me-2" (click)="saveChanges()">
+                            <i class="bi bi-check-circle"></i> Save
+                        </button>
+                        <button class="btn btn-outline-secondary" (click)="toggleEdit()">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </button>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+

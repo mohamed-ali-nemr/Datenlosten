@@ -1,0 +1,110 @@
+<div class="container mt-4">
+  <h2 class="text-center fw-bold mb-4">Add New Inventory Item
+  </h2>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow">
+        
+        <div class="card-body">
+          <form [formGroup]="addInventoryForm" (ngSubmit)="onSubmit()">
+            <!-- Name Field -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                id="name"
+                formControlName="name"
+                class="form-control"
+                placeholder="Enter item name"
+              />
+              <small
+                *ngIf="
+                  addInventoryForm.get('name')?.invalid &&
+                  addInventoryForm.get('name')?.touched
+                "
+                class="text-danger"
+              >
+                Name is required.
+              </small>
+            </div>
+
+            <!-- Category Field -->
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <input
+                id="category"
+                formControlName="category"
+                class="form-control"
+                placeholder="Enter item category"
+              />
+              <small
+                *ngIf="
+                  addInventoryForm.get('category')?.invalid &&
+                  addInventoryForm.get('category')?.touched
+                "
+                class="text-danger"
+              >
+                Category is required.
+              </small>
+            </div>
+
+            <!-- Quantity Field -->
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input
+                id="quantity"
+                type="number"
+                formControlName="quantity"
+                class="form-control"
+                placeholder="Enter quantity"
+              />
+              <small
+                *ngIf="
+                  addInventoryForm.get('quantity')?.invalid &&
+                  addInventoryForm.get('quantity')?.touched
+                "
+                class="text-danger"
+              >
+                Quantity must be a positive number.
+              </small>
+            </div>
+
+            <!-- Last Updated Field -->
+            <div class="mb-3">
+              <label for="lastUpdated" class="form-label">Last Updated</label>
+              <input
+                id="lastUpdated"
+                type="date"
+                formControlName="lastUpdated"
+                class="form-control"
+              />
+              <small
+                *ngIf="
+                  addInventoryForm.get('lastUpdated')?.invalid &&
+                  addInventoryForm.get('lastUpdated')?.touched
+                "
+                class="text-danger"
+              >
+                A valid date is required.
+              </small>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+              <button
+                type="submit"
+                class="btn btn-outline-primary m-2"
+                [disabled]="addInventoryForm.invalid"
+              >
+              <i class="bi bi-plus-circle me-2"></i> Add Item
+              </button>
+              <button class="btn btn-outline-secondary  " routerLink="/inventory">
+                <i class="bi bi-arrow-left me-2"></i> Back to Inventory
+            </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
