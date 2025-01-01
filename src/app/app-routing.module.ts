@@ -6,7 +6,7 @@ import { InventoryDetailsComponent } from './inventory-details/inventory-details
 import { AddInventoryComponent } from './add-inventory/add-inventory.component';
 
 const routes: Routes = [
-  { path: 'inventory', component: InventoryListComponent },
+  { path: 'inventory', loadChildren: () => import('./inventory/inventory.module').then(m => m.InventoryModule) },
   { path: 'inventory/:id', component: InventoryDetailsComponent },
   { path: 'add-inventory', component: AddInventoryComponent },
 

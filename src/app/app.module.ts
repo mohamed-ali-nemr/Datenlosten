@@ -7,14 +7,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { InventoryListComponent } from './inventory-list/inventory-list.component';
+// import { InventoryListComponent } from './inventory-list/inventory-list.component';
 import { InventoryDetailsComponent } from './inventory-details/inventory-details.component';
 import { AddInventoryComponent } from './add-inventory/add-inventory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InventoryListComponent,
+    // InventoryListComponent,
     InventoryDetailsComponent,
     AddInventoryComponent
   ],
